@@ -1,6 +1,6 @@
 ---
-- name: gomax integration
-  hosts: all
+- name: gomax integration build
+  hosts: localserver
   become: true
   roles:
     - role: gazellacom-deploy
@@ -9,12 +9,23 @@
       gazellacom_build_delete_workdir: false
       gazellacom_build_shell_interpreter: /bin/bash
       gazellacom_build_relative_path_to_deploy_dir: target/gazellacom/
-      gazellacom_java_package_version: 'java-17-openjdk'
+      gazellacom_java_package_version: 'java-17'
       gazellacom_java_home: '/usr/lib/jvm/'
 
-      gazellacom_app_workdir: '/tmp/workdir'
-      gazellacom_app_user: gazellacom_app
+      gazellacom_app_repo_url: 
+      gazellacom_app_repo_filter: 
+      gazellacom_app_repo_branch: 
+      gazellacom_app_workdir: '/opt/workspace/gomax/gomax-deploy-integration'
+      gazellacom_app_user: gazellacom_build
       gazellacom_app_group: "{{ gazellacom_app_user }}"
+
+
+
+- name: gomax integration deploy
+  hosts: server-integration
+  become: true
+  roles:
+    - role: gazellacom-deploy
 
       gazellacom_app_service_name: "{{ app_name }}"
       gazellacom_deploy_systemd_service_conf: "/etc/{{ app_name }}.conf"
@@ -26,3 +37,4 @@
       gazellacom_app_port_firewalld: "{{ gazellacom_app_port }}"
       gazellacom_app_firewalld_enabled: false
       gazellacom_firewalld_package: firewalld
+
