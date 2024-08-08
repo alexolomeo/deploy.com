@@ -1,0 +1,22 @@
+[wara]
+
+[wara:vars]
+ansible_user=ubuntu
+ansible_ssh_private_key_file= ./keys/KEY-WARA-RIBEPAR-APP.pem
+ansible_become=yes
+ansible_python_interpreter=/usr/bin/python3
+
+[syscom]
+
+[syscom:vars]
+ansible_user=ec2-user
+ansible_ssh_private_key_file= ./keys/KEY-SYSCOM-RIBEPAR-APP.pem
+ansible_become=yes
+
+[localserver]
+159.65.253.208
+
+[localserver:vars]
+ansible_user=root
+ansible_ssh_private_key_file= ./keys/KEY-SYSCOM-RIBEPAR-APP.pem
+ansible_become=yes
