@@ -18,5 +18,5 @@ ansible_become=yes
 
 [localserver:vars]
 ansible_user=root
-ansible_ssh_private_key_file= ./keys/KEY-SYSCOM-RIBEPAR-APP.pem
+#ansible_ssh_private_key_file= ./keys/KEY-SYSCOM-RIBEPAR-APP.pem
 ansible_become=yes

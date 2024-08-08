@@ -2,7 +2,7 @@
 - name: "Delete previous workdir (if requested)."
   ansible.builtin.file:
     path: /opt/demoansible2
-    state: present
+    state: directory
 
 - name: "Build app (if requested)."
   ansible.builtin.include_tasks: build.yml

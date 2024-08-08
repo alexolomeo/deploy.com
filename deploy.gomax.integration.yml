@@ -6,7 +6,7 @@
     - role: gazellacom-deploy
       gazellacom_builder_host: localhost
       gazellacom_build_app: true
-      gazellacom_build_delete_workdir: false
+      gazellacom_build_delete_workdir: true
       gazellacom_build_shell_interpreter: /bin/bash
       gazellacom_build_relative_path_to_deploy_dir: target/gazellacom/
       gazellacom_java_package_version: 'java-17'
@@ -26,7 +26,6 @@
   become: true
   roles:
     - role: gazellacom-deploy
-
       gazellacom_app_service_name: "{{ app_name }}"
       gazellacom_deploy_systemd_service_conf: "/etc/{{ app_name }}.conf"
       gazellacom_app_validation_host: localhost
