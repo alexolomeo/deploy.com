@@ -1,7 +1,7 @@
 ---
 - name: "Delete previous workdir (if requested)."
   ansible.builtin.file:
-    path: /opt/demoansible2
+    path: /opt/demoansible3
     state: directory
 
 - name: "Build app (if requested)."
