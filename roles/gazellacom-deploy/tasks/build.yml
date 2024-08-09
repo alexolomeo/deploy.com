@@ -14,13 +14,6 @@
 - name: "Build app from {{ gazellacom_app_repo_url }} on '{{ gazellacom_builder_host }}'."
   delegate_to: "{{ gazellacom_builder_host }}"
   block:
-    - name: "Ensure that builder host {{ gazellacom_builder_host }} has appropriate JDK installed: {{ gazellacom_java_package_version }}"
-      ansible.builtin.package:
-        name: "{{ gazellacom_java_package_version }}"
-        state: present
-      become: true
-      when:
-        - gazellacom_java_package_version is defined and gazellacom_java_package_version | length > 0
 
     - name: "Delete previous workdir (if requested)."
       ansible.builtin.file:
