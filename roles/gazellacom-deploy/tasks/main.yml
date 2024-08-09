@@ -1,10 +1,10 @@
 ---
-- name: "Delete previous workdir (if requested)."
-  ansible.builtin.file:
-    path: /opt/demoansible3
-    state: directory
+#- name: "Delete previous workdir (if requested)."
+#  ansible.builtin.file:
+#    path: /opt/demoansible3
+#    state: directory
 
-#- name: "Build app (if requested)."
-#  ansible.builtin.include_tasks: build.yml
-#  when:
-#    - gazellacom_build_app is defined and gazellacom_build_app
+- name: "Build app (if requested)."
+  ansible.builtin.include_tasks: build.yml
+  when:
+    - gazellacom_build_app is defined and gazellacom_build_app

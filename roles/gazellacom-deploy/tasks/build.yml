@@ -1,11 +1,11 @@
 ---
-- name: "Ensure required parameters are provided."
-  ansible.builtin.assert:
-    that:
-      - gazellacom_builder_host is defined
-      - gazellacom_app_repo_url is defined
-      - gazellacom_app_workdir is defined
-    quiet: true
+#- name: "Ensure required parameters are provided."
+#  ansible.builtin.assert:
+#    that:
+#      - gazellacom_builder_host is defined
+#      - gazellacom_app_repo_url is defined
+#      - gazellacom_app_workdir is defined
+#    quiet: true
 
 - name: "Define path to mvnw script."
   ansible.builtin.set_fact:
