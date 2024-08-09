@@ -21,20 +21,20 @@
 
 
 
-- name: gomax integration deploy
-  hosts: server-integration
-  become: true
-  roles:
-    - role: gazellacom-deploy
-      app_name: deploy
-      gazellacom_app_service_name: "{{ app_name }}"
-      gazellacom_deploy_systemd_service_conf: "/etc/{{ app_name }}.conf"
-      gazellacom_app_validation_host: localhost
-      gazellacom_systemd_service_template: 'templates/service_systemd.j2'
-      gazellacom_systemd_home: '/usr/lib/systemd/system'
-
-      gazellacom_app_port: 8080
-      gazellacom_app_port_firewalld: "{{ gazellacom_app_port }}"
-      gazellacom_app_firewalld_enabled: false
-      gazellacom_firewalld_package: firewalld
+#- name: gomax integration deploy
+#  hosts: server-integration
+#  become: true
+#  roles:
+#    - role: gazellacom-deploy
+#      app_name: deploy
+#      gazellacom_app_service_name: "{{ app_name }}"
+#      gazellacom_deploy_systemd_service_conf: "/etc/{{ app_name }}.conf"
+#      gazellacom_app_validation_host: localhost
+#      gazellacom_systemd_service_template: 'templates/service_systemd.j2'
+#      gazellacom_systemd_home: '/usr/lib/systemd/system'
+#
+#      gazellacom_app_port: 8080
+#      gazellacom_app_port_firewalld: "{{ gazellacom_app_port }}"
+#      gazellacom_app_firewalld_enabled: false
+#      gazellacom_firewalld_package: firewalld
 
