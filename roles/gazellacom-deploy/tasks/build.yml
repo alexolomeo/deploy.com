@@ -25,7 +25,6 @@
         - gazellacom_build_delete_workdir
 
     - name: "Ensure app workdir exists: {{ gazellacom_app_workdir }}"
-      become: true
       ansible.builtin.file:
         path: "{{ gazellacom_app_workdir }}"
 #        owner: "{{ gazellacom_app_user | default(omit) }}"
