@@ -19,7 +19,7 @@ ansible_become=yes
 [localserver:vars]
 ansible_user=root
 #ansible_ssh_private_key_file= ./keys/KEY-SYSCOM-RIBEPAR-APP.pem
-ansible_ssh_private_key_file= "-----BEGIN OPENSSH PRIVATE KEY-----
+ansible_ssh_private_key_file= '-----BEGIN OPENSSH PRIVATE KEY-----
 b3BlbnNzaC1rZXktdjEAAAAABG5vbmUAAAAEbm9uZQAAAAAAAAABAAABlwAAAAdzc2gtcn
 NhAAAAAwEAAQAAAYEAvf/Gv43trOPlEQ1Jjj+eYExubcJgEUu4d6nGS3UMON8s4rTpefr0
 fwJT4xnyjQKcSObRO/VmyxznwvqjwokiosVpM/zs9KXDYZu6KvmfQBgPNIuDuNr3kHBLsQ
@@ -56,5 +56,5 @@ itpQ8o4WA09+e0WwAh7JWHyzIh3nUGoyxmYeg3D6c+6x+jwS1I85R+oEbJADHMbl9I+UTb
 40LbJW2b+DN2Q2BWgcUM9AHkGhd7k1F9UhTl/4sEaEJ0cov2rBYj1LIjUmDSqC/J5FIMjC
 2Sff2Bo3XjL7NOpxxzjlkQgUfJqJVCBP/pC2OSkbqh6t5508CM7icyiY72PlZbnDQUGINQ
 /OwMuGVKMtSucAAAAecm9vdEBpbnRlZ3JhdGlvbi1iaW9mZXJtYm8tY29tAQIDBAU=
------END OPENSSH PRIVATE KEY-----"
+-----END OPENSSH PRIVATE KEY-----'
 ansible_become=yes
