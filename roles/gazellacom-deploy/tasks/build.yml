@@ -27,7 +27,6 @@
     - name: "Ensure app workdir exists: {{ gazellacom_app_workdir }}"
       ansible.builtin.file:
         path: "{{ gazellacom_app_workdir }}"
-	recurse: yes
         mode: 0755
         state: directory
 #        owner: "{{ gazellacom_app_user | default(omit) }}"
