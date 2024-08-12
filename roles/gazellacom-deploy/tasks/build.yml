@@ -28,8 +28,8 @@
       become: true
       ansible.builtin.file:
         path: "{{ gazellacom_app_workdir }}"
-        owner: "{{ gazellacom_app_user | default(omit) }}"
-        group: "{{ gazellacom_app_group | default(omit) }}"
+#        owner: "{{ gazellacom_app_user | default(omit) }}"
+#        group: "{{ gazellacom_app_group | default(omit) }}"
         mode: 0755
         state: directory
 
