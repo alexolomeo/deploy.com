@@ -28,10 +28,10 @@
       ansible.builtin.file:
         path: "{{ gazellacom_app_workdir }}"
 	recurse: yes
-        owner: "{{ gazellacom_app_user | default(omit) }}"
-        group: "{{ gazellacom_app_group | default(omit) }}"
         mode: 0755
         state: directory
+#        owner: "{{ gazellacom_app_user | default(omit) }}"
+#        group: "{{ gazellacom_app_group | default(omit) }}"
 
     - name: "Checkout the application source code."
       ansible.builtin.git:
