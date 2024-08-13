@@ -18,16 +18,16 @@
     - name: "Delete previous workdir (if requested)."
       ansible.builtin.file:
         path: "{{ gazellacom_app_workdir }}"
-        state: absent
+        state: directory
       changed_when: false
       when:
         - gazellacom_build_delete_workdir is defined
         - gazellacom_build_delete_workdir
 
-    - name: "Ensure app workdir exists: {{ gazellacom_app_workdir }}"
-      ansible.builtin.file:
-        path: "{{ gazellacom_app_workdir }}"
-        state: directory
+#    - name: "Ensure app workdir exists: {{ gazellacom_app_workdir }}"
+#      ansible.builtin.file:
+#        path: "{{ gazellacom_app_workdir }}"
+#        state: directory
 #        mode: 0755
 #        owner: "{{ gazellacom_app_user | default(omit) }}"
 #        group: "{{ gazellacom_app_group | default(omit) }}"
