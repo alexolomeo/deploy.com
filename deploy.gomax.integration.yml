@@ -15,8 +15,7 @@
       gazellacom_app_repo_url: 
       gazellacom_app_repo_filter: 
       gazellacom_app_repo_branch: 
-#      gazellacom_app_workdir: '/opt/workspace/gomax/gomax-deploy-integration'
-      gazellacom_app_workdir: '/opt/workspace'
+      gazellacom_app_workdir: '/opt/workspace/gomax/gomax-deploy-integration'
       gazellacom_app_user: gazellacom_build
       gazellacom_app_group: "{{ gazellacom_app_user }}"
 
