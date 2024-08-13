@@ -12,17 +12,13 @@
     path_to_mvnw: "{{ gazellacom_app_workdir }}/{{ gazellacom_app_source_folder | default('') }}/mvnw"
 
 - name: "Build app from {{ gazellacom_app_repo_url }} on '{{ gazellacom_builder_host }}'."
-  delegate_to: "{{ gazellacom_builder_host }}"
+#  delegate_to: "{{ gazellacom_builder_host }}"
   block:
 
     - name: "Delete previous workdir (if requested)."
       ansible.builtin.file:
         path: "{{ gazellacom_app_workdir }}"
         state: absent
-      changed_when: false
-      when:
-        - gazellacom_build_delete_workdir is defined
-        - gazellacom_build_delete_workdir
 
     - name: "Ensure app workdir exists: {{ gazellacom_app_workdir }}"
       ansible.builtin.file:
