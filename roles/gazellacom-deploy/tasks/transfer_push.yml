@@ -19,9 +19,6 @@
         state: absent
       ignore_errors: yes
 
-        #    - name: "Increment variable gazellacom_number_build = {{ gazellacom_number_build | int + 1 }}"
-        #      set_fact: gazellacom_number_build={{ gazellacom_number_build | int + 1 }}
-
   when: inventory_hostname == 'com'
 
 

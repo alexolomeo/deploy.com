@@ -1,9 +1,5 @@
 ---
 
-#- name: "Define path to mvnw script."
-#  ansible.builtin.set_fact:
-#    path_to_mvnw: "{{ gazellacom_build_workdir }}/{{ gazellacom_build_source_folder | default('') }}/mvnw"
-
 - name: "Build app from {{ gazellacom_build_repo_url }} on '{{ gazellacom_builder_repo_branch }}'."
   block:
 
