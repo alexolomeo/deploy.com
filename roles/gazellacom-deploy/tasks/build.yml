@@ -12,22 +12,20 @@
 #        gazellacom_number_build: "{{ lookup('file', gazellacom_build_sequence_file, errors='ignore') }}"
 #      failed_when: false
 
-    - name: "Read file and put variable  gazellacom_number_build = {{ gazellacom_number_build_read.stdout }}"
+    - name: "Read file and put variable from {{ gazellacom_build_sequence_file }} "
       ansible.builtin.command: "cat {{ gazellacom_build_sequence_file }}"
       ignore_errors: true
       changed_when: false
       register: gazellacom_number_build_read
       become: yes
 
-    - name: "Increment variable gazellacom_number_build = {{ gazellacom_number_build | int + 1 }}"
+    - name: "Set global variable gazellacom_number_build"
       ansible.builtin.set_fact:
-        gazellacom_number_build={{ gazellacom_number_build_read.stdout | int + 1 }}
+        gazellacom_number_build: "{{ gazellacom_number_build_read.stdout }}"
 
-#        gazellacom_number_build: "{{ gazellacom_number_build_read.stdout }}"
-#
-#    - name: "Increment variable gazellacom_number_build = {{ gazellacom_number_build | int + 1 }}"
-#      set_fact: 
-#        gazellacom_number_build={{ gazellacom_number_build | int + 1 }}
+    - name: "Increment variable gazellacom_number_build = {{ gazellacom_number_build | int + 1 }}"
+      ansible.builtin.set_fact: 
+        gazellacom_number_build={{ gazellacom_number_build | int + 1 }}
 
     - name: "set sequence file {{ gazellacom_build_sequence_file }} to {{ gazellacom_number_build }}"
       ansible.builtin.shell: "echo {{ gazellacom_number_build }} > {{ gazellacom_build_sequence_file }}"
