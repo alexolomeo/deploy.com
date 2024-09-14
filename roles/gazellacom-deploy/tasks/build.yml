@@ -7,6 +7,11 @@
 - name: "Build app from {{ gazellacom_build_repo_url }} on '{{ gazellacom_builder_repo_branch }}'."
   block:
 
+    - name: fact with ignore error
+      ansible.builtin.set_fact:
+        gazellacom_number_build: "{{ lookup('file', gazellacom_build_sequence_file, errors='ignore') }}"
+      failed_when: false
+
     - name: "Increment variable gazellacom_number_build = {{ gazellacom_number_build | int + 1 }}"
       set_fact: gazellacom_number_build={{ gazellacom_number_build | int + 1 }}
 
