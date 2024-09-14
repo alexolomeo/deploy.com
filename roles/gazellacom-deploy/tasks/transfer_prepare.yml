@@ -29,7 +29,7 @@
       ansible.builtin.shell: "cp {{ gazellacom_build_workdir }}/target/*.war /tmp/build_{{ gazellacom_number_build }}/"
 
     - name: "Create compress: /tmp/build_{{ gazellacom_number_build }}"
-      community.general.archive:
+      archive:
         path: "/tmp/build_{{ gazellacom_number_build }}"
         dest: "/tmp/build_{{ gazellacom_number_build }}.tar.gz"
         remove: yes
