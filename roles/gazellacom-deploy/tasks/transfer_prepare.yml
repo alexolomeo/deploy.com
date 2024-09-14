@@ -2,6 +2,14 @@
 - name: "Preoare to tranfer"
   block:
 
+    - name: Checking gazellacom_number_build
+      debug:
+        msg: "gazellacom_number_build is {{ gazellacom_number_build }}"
+
+    - name: Checking inventory_hostname
+      debug:
+        msg: "hostname is {{ inventory_hostname }}"
+
     - name: "Delete previous /tmp/build_{{ gazellacom_number_build }}"
       ansible.builtin.file:
         path: "/tmp/build_{{ gazellacom_number_build }}"
@@ -20,17 +28,10 @@
     - name: "Move deploy.war to /tmp/build_{{ gazellacom_number_build }}"
       ansible.builtin.shell: "cp {{ gazellacom_build_workdir }}/target/*.war /tmp/build_{{ gazellacom_number_build }}/"
 
-    - name: "Create exists: /tmp/build_{{ gazellacom_number_build }}"
+    - name: "Create compress: /tmp/build_{{ gazellacom_number_build }}"
       community.general.archive:
         path: "/tmp/build_{{ gazellacom_number_build }}"
-        dest: "/tmp/build_{{ gazellacom_number_build }}.tgz"
-
-    - name: Here we are checking gazellacom_number_build
-      debug:
-        msg: "gazellacom_number_build is {{ gazellacom_number_build }}"
-    - name: Here we are checking inventory_hostname
-      debug:
-        msg: "hostname is {{ inventory_hostname }}"
+        dest: "/tmp/build_{{ gazellacom_number_build }}.tar.gz"
 
     - name: Fetch the file from build localserver
       run_once: yes
