@@ -20,8 +20,8 @@
       ansible.builtin.file:
         path: "/tmp/build_{{ gazellacom_number_build }}"
         state: directory
-        owner: "{{ gazellacom_build_user }}"
-        group: "{{ gazellacom_build_group }}"
+#        owner: "{{ gazellacom_build_user }}"
+#        group: "{{ gazellacom_build_group }}"
         mode: 0775
         force: yes
 
