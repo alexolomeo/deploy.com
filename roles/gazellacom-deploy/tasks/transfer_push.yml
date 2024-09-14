@@ -4,18 +4,18 @@
 
     - name: Copy the file from master to gazellacom
       ansible.builtin.copy: 
-        src: "buffer/build_{{ gazellacom_number_build }}.tgz"
-        dest: "{{ gazellacom_remote_workdir }}/build_{{ gazellacom_number_build }}.tgz"
+        src: "buffer/build_{{ gazellacom_number_build }}.tar.gz"
+        dest: "{{ gazellacom_remote_workdir }}/build_{{ gazellacom_number_build }}.tar.gz"
           
     - name: "Unarchive deploy: {{ gazellacom_remote_workdir }}"
       ansible.builtin.unarchive:
-        src: "{{ gazellacom_remote_workdir }}/build_{{ gazellacom_number_build }}.tgz"
+        src: "{{ gazellacom_remote_workdir }}/build_{{ gazellacom_number_build }}.tar.gz"
         dest: "{{ gazellacom_remote_workdir }}"
         remote_src: yes
 
     - name: "Delete compress {{ gazellacom_remote_workdir }}/build_{{ gazellacom_number_build }}.tgz"
       ansible.builtin.file:
-        path: "{{ gazellacom_remote_workdir }}/build_{{ gazellacom_number_build }}.tgz"
+        path: "{{ gazellacom_remote_workdir }}/build_{{ gazellacom_number_build }}.tar.gz"
         state: absent
       ignore_errors: yes
 

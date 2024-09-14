@@ -32,11 +32,12 @@
       community.general.archive:
         path: "/tmp/build_{{ gazellacom_number_build }}"
         dest: "/tmp/build_{{ gazellacom_number_build }}.tar.gz"
+        remove: yes
 
     - name: Fetch the file from build localserver
       run_once: yes
       fetch: 
-        src: "/tmp/build_{{ gazellacom_number_build }}.tgz"
+        src: "/tmp/build_{{ gazellacom_number_build }}.tar.gz"
         dest: buffer/ 
         flat: yes
 
