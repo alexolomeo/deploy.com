@@ -29,22 +29,12 @@
       ansible.builtin.shell: "cp {{ gazellacom_build_workdir }}/target/*.war /tmp/build_{{ gazellacom_number_build }}/"
 
     - name: create compress file
-      community.general.archive:
-        path: "/tmp/build_{{ gazellacom_number_build }}"
-        dest: "/tmp/build_{{ gazellacom_number_build }}.zip"
-        format: zip
-        remove: yes
-
-#    - name: "Create compress: /tmp/build_{{ gazellacom_number_build }}"
-#      archive:
-#        path: "/tmp/build_{{ gazellacom_number_build }}"
-#        dest: "/tmp/build_{{ gazellacom_number_build }}.tar.gz"
-#        remove: yes
+      ansible.builtin.shell: "tar -zcvf /tmp/build_{{ gazellacom_number_build }}.tar.gz /tmp/build_{{ gazellacom_number_build }}" 
 
     - name: Fetch the file from build localserver
       run_once: yes
       fetch: 
-        src: "/tmp/build_{{ gazellacom_number_build }}.zip"
+        src: "/tmp/build_{{ gazellacom_number_build }}.tar.gz"
         dest: buffer/ 
         flat: yes
 
