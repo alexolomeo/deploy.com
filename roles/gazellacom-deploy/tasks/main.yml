@@ -9,7 +9,7 @@
   when: gazellacom_mode == 'build'    
 
 - name: "Prepare application to tranfer"
-  ansible.builtin.include_tasks: transfer_prepare.yml
+  ansible.builtin.include_tasks: transfer_prepare_tmp.yml
   when: gazellacom_mode == 'build'    
 
 - name: "Tranfer Compress package"

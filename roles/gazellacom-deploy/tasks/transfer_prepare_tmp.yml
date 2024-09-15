@@ -1,0 +1,32 @@
+---
+- name: "Preoare to tranfer"
+  block:
+
+    - name: Checking gazellacom_number_build
+      debug:
+        msg: "gazellacom_number_build is {{ gazellacom_number_build }}"
+
+    - name: Checking inventory_hostname
+      debug:
+        msg: "hostname is {{ inventory_hostname }}"
+
+    - name: "Delete previous /tmp/build_{{ gazellacom_number_build }}"
+      ansible.builtin.file:
+        path: "/tmp/build_{{ gazellacom_number_build }}"
+        state: absent
+      ignore_errors: yes
+
+    - name: "Create exists: /tmp/build_{{ gazellacom_number_build }}"
+      ansible.builtin.file:
+        path: "/tmp/build_{{ gazellacom_number_build }}"
+        state: directory
+        owner: "{{ gazellacom_build_user }}"
+        group: "{{ gazellacom_build_group }}"
+        mode: 0775
+        force: yes
+
+    - name: "Move deploy.war to /tmp/build_{{ gazellacom_number_build }}"
+      ansible.builtin.shell: "cp {{ gazellacom_build_workdir }}/target/*.war /tmp/build_{{ gazellacom_number_build }}/"
+
+  when: inventory_hostname == 'controller'
+
