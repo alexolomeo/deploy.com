@@ -2,6 +2,10 @@
 - name: "push file to remote host {{ gazellacom_project }} {{ gazellacom_environment }}"
   block:
 
+    - name: Checking gazellacom_number_build from tranfer_push.yml
+      debug:
+        msg: "gazellacom_number_build is {{ gazellacom_number_build }}"
+
     - name: Copy the file from master to gazellacom
       ansible.builtin.copy: 
         src: "buffer/build_{{ gazellacom_number_build }}.tar.gz"

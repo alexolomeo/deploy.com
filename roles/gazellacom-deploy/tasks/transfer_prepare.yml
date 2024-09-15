@@ -28,7 +28,7 @@
     - name: "Move deploy.war to /tmp/build_{{ gazellacom_number_build }}"
       ansible.builtin.shell: "cp {{ gazellacom_build_workdir }}/target/*.war /tmp/build_{{ gazellacom_number_build }}/"
 
-    - name: "Create compress file build_{{ gazellacom_number_build }}tar.gz "
+    - name: "Create compress file build_{{ gazellacom_number_build }}.tar.gz "
       ansible.builtin.shell: "tar -zcvf /tmp/build_{{ gazellacom_number_build }}.tar.gz /tmp/build_{{ gazellacom_number_build }}" 
 
     - name: "Remove directory file build_{{ gazellacom_number_build }} after compress"
