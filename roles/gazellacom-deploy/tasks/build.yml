@@ -11,7 +11,6 @@
     - name: Print message if ansible version is greater than 2.7.0
       debug:
         msg: "Ansible version is  {{ ansible_version.full }}"
-      when: ansible_version.full >= "2.7.4"
 
     - name: "Read file and put variable from {{ gazellacom_build_sequence_file }} "
       ansible.builtin.command: "cat {{ gazellacom_build_sequence_file }}"

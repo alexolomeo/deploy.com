@@ -30,7 +30,9 @@
 - name: gomax integration deploy
   hosts: gazellacom
   become: true
-#  vars:
+  vars:
+     gazellacom_number_build: "{{ lookup('ansible.builtin.vars', 'variabl' + gazellacom_number_build) }}"
+#     gazellacom_number_build: "{{ lookup('vars', gazellacom_build_sequence_file) }}"
 #     gazellacom_number_build: "{{ lookup('file', gazellacom_build_sequence_file) }}"
   roles:
     - role: gazellacom-deploy
