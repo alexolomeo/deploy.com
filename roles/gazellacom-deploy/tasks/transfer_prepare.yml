@@ -44,5 +44,11 @@
         dest: buffer/ 
         flat: yes
 
+    - name: set to delegate variable from controller to com
+      set_fact:
+        gazellacom_number_build: "{{ gazellacom_number_build }}"
+      delegate_facts: yes
+      delegate_to: com
+
   when: inventory_hostname == 'controller'
 
