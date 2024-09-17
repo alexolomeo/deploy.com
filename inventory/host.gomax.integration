@@ -7,7 +7,7 @@ ansible_become=yes
 ansible_python_interpreter=/usr/bin/python3
 
 [gazellacom]
-com ansible_host=18.211.47.190
+com ansible_host=gomax-com-integration.swisstech.solutions
 
 [gazellacom:vars]
 ansible_user=jenkins-user
