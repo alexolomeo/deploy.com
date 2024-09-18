@@ -8,6 +8,23 @@
 #        gazellacom_number_build: "{{ lookup('file', gazellacom_build_sequence_file, errors='ignore') }}"
 #      failed_when: false
 
+    - name: "Ensure app sequences exists: {{ gazellacom_build_sequence }}"
+      ansible.builtin.file:
+        path: "{{ gazellacom_build_sequence }}"
+        state: directory
+        owner: "{{ gazellacom_build_user }}"
+        group: "{{ gazellacom_build_group }}"
+        mode: 0775
+        force: yes
+
+    - name: "Touch if dont exist {{ gazellacom_build_sequence_file }}"
+      ansible.builtin.file:
+        path: "{{ gazellacom_build_sequence_file }}"
+        state: touch
+        mode: u+rw,g-wx,o-rwx
+        modification_time: preserve
+        access_time: preserve
+
     - name: Print message if ansible version is greater than 2.7.0
       debug:
         msg: "Ansible version is  {{ ansible_version.full }}"
@@ -34,15 +51,6 @@
       ansible.builtin.file:
         path: "{{ gazellacom_build_workdir }}"
         state: absent
-
-    - name: "Ensure app sequences exists: {{ gazellacom_build_sequence }}"
-      ansible.builtin.file:
-        path: "{{ gazellacom_build_sequence }}"
-        state: directory
-        owner: "{{ gazellacom_build_user }}"
-        group: "{{ gazellacom_build_group }}"
-        mode: 0775
-        force: yes
 
     - name: "Ensure app workdir exists: {{ gazellacom_build_workdir }}"
       ansible.builtin.file:
