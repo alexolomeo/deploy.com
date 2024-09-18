@@ -8,6 +8,8 @@
       gazellacom_environment: integration               #integration, production
       gazellacom_build_profile_customer: laestrella
       gazellacom_build_profile_environment: integration
+      gazellacom_build_delete_workdir: true
+      gazellacom_build_relative_path_to_deploy_dir: target/
       gazellacom_java_package_version: 'java-8'
       gazellacom_java_home: '/usr/lib64/jvm/jdk1.8.0_202'
       gazellacom_build_repo_url: git@bitbucket.org:Swissbytes/syscom.git 
