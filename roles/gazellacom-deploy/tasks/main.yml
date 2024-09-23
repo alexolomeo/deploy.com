@@ -16,6 +16,6 @@
   ansible.builtin.include_tasks: transfer_push.yml
   when: gazellacom_mode == 'deploy'    
 
-#- name: "Deploy new package on wildfly"
-#  ansible.builtin.include_tasks: deploy.yml
-#  when: gazellacom_mode == 'deploy'    
+- name: "Deploy new package on wildfly"
+  ansible.builtin.include_tasks: deploy.yml
+  when: gazellacom_mode == 'deploy'    
